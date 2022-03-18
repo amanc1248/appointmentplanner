@@ -12,18 +12,20 @@ export const AppointmentsPage = ({
   */
   const [title, setTitle] = useState("");
   const [contact, setContact] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
     /*
     Add contact info and clear data  
     */
-    addAppointment(title, contact, date, time);
-    setTitle("");
-    setContact("");
-    setTime("");
-    setDate("");
+    if (title && contact && date && time) {
+      addAppointment(title, contact, date, time);
+      setTitle("");
+      setContact("");
+      setTime("");
+      setDate("");
+    }
   };
 
   return (
